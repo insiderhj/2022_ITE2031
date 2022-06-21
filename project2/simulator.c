@@ -89,15 +89,8 @@ int main(int argc, char *argv[])
             newState.EXMEM.aluResult = convertNum(state.IDEX.offset) + state.IDEX.readRegA;
             break;
         case BEQ:
-            if(state.IDEX.readRegA == state.IDEX.readRegB) {
-                memset(&newState.IFID, 0, sizeof(newState.IFID));
-                newState.IFID.instr = NOOP << 22;
-                
-                memset(&newState.IDEX, 0, sizeof(newState.IDEX));
-                newState.IDEX.instr = NOOP << 22;
-
+            if(state.IDEX.readRegA == state.IDEX.readRegB) 
                 newState.pc = newState.EXMEM.branchTarget - 1;
-            }
             break;
         }
         newState.EXMEM.readRegB = state.IDEX.readRegB;

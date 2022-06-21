@@ -1,10 +1,8 @@
         lw	0	1	six
         lw	0	2	minus
         lw  0   3   minus
-        noop
-        noop
-start   add	1	2	1
-        add 3   2   3
+start   add	1	2	1       $data hazard on reg1
+        add 3   2   3                   $data hazard on reg2
         noop
         noop
         beq 0   1   done
